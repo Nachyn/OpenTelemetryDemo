@@ -1,3 +1,6 @@
+/containers-data/jaeger/data
+/containers-data/jaeger/key
+/containers-data/tempo/data
 .idea
 bin/
 obj/
