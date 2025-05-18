@@ -25,8 +25,8 @@ async function bootstrap() {
   // SWAGGER UI: http://localhost:3001/api
   SwaggerModule.setup('api', app, () => {
     const config = new DocumentBuilder()
-      .setTitle('NRI plugin store')
-      .setDescription('NRI plugin API description')
+      .setTitle('Warehouse service')
+      .setDescription('Open Telemetry Demo')
       .setVersion('1.0')
       .build();
     return SwaggerModule.createDocument(app, config);
@@ -34,6 +34,6 @@ async function bootstrap() {
 
   app.enableCors();
 
-  await app.listen(process.env.PORT ?? 3001);
+  await app.listen(process.env.PORT ?? 5000);
 }
 bootstrap();
