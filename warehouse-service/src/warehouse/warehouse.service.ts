@@ -10,16 +10,16 @@ export class WarehouseService {
   constructor(private readonly loggerService: LoggerService) {}
 
   private readonly products = [
-    { id: 1, name: 'Keyboard', price: 49.99 },
-    { id: 2, name: 'Mouse', price: 29.99 },
-    { id: 3, name: 'Monitor', price: 199.99 },
-    { id: 4, name: 'USB Hub', price: 24.99 },
-    { id: 5, name: 'Desk Lamp', price: 39.99 },
-    { id: 6, name: 'Webcam', price: 89.99 },
-    { id: 7, name: 'Microphone', price: 59.99 },
-    { id: 8, name: 'Chair', price: 129.99 },
-    { id: 9, name: 'Laptop Stand', price: 74.99 },
-    { id: 10, name: 'Notebook Cooler', price: 34.99 },
+    { id: 1, name: 'Keyboard', price: 50 },
+    { id: 2, name: 'Mouse', price: 30 },
+    { id: 3, name: 'Monitor', price: 200 },
+    { id: 4, name: 'USB Hub', price: 25 },
+    { id: 5, name: 'Desk Lamp', price: 40 },
+    { id: 6, name: 'Webcam', price: 90 },
+    { id: 7, name: 'Microphone', price: 60 },
+    { id: 8, name: 'Chair', price: 130 },
+    { id: 9, name: 'Laptop Stand', price: 75 },
+    { id: 10, name: 'Notebook Cooler', price: 35 },
   ];
 
   reserveProduct(productId: number, quantity: number): OrderItem {

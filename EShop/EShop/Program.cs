@@ -57,6 +57,7 @@ try
                                                  !pathValue.StartsWith("/framework"));
                 };
             })
+            .AddHttpClientInstrumentation()
             .AddOtlpExporter())
         .WithMetrics(x => x
             .AddMeter(Diagnostic.InstrumentsSourceName)
@@ -88,7 +89,7 @@ try
                 [FromQuery] int productId,
                 [FromQuery] int quantity) =>
             {
-                var activity = Diagnostic.Source.StartActivity("API handler: /api/orders");
+                using var activity = Diagnostic.Source.StartActivity("API handler: /api/orders");
                 activity?.AddEvent(new ActivityEvent("OrderService call started"));
                 var order = service.CreateOrder(productId, quantity);
                 activity?.AddEvent(new ActivityEvent("OrderService call completed"));
