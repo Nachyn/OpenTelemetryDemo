@@ -1,4 +1,5 @@
-﻿using EShop.Clients;
+﻿using System.Diagnostics;
+using EShop.Clients;
 using EShop.Database;
 using EShop.Models;
 
@@ -10,9 +11,11 @@ public class OrderService(WarehouseClient client, AppDbContext context)
     {
         using var activity = Diagnostic.Source.StartActivity();
 
-        activity?.AddEvent(new ("Reserve product"));
+        Diagnostic.TryOrdersCounter.Add(1);
+
+        activity?.AddEvent(new ActivityEvent("Reserve product"));
         var product = await client.ReserveProduct(productId, quantity);
-        activity?.AddEvent(new ("Product reserve"));
+        activity?.AddEvent(new ActivityEvent("Product reserved"));
 
         var order = new Order
         {
@@ -31,6 +34,7 @@ public class OrderService(WarehouseClient client, AppDbContext context)
         };
         await context.Save(order);
 
+        Diagnostic.SuccessOrdersCounter.Add(1);
         return order;
     }
 }
