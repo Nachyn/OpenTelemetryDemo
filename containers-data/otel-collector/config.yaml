@@ -26,6 +26,10 @@ exporters:
       insecure: true
   loki:
     endpoint: "http://loki:3100/loki/api/v1/push"
+  # sentry:
+  #   dsn: https://<aaa>@<bbb>.ingest.de.sentry.io/<ccc>
+  #   environment: prod
+  #   insecure_skip_verify: true
   otlp/tempo:
     endpoint: "tempo:4317"
     tls:
