@@ -104,6 +104,7 @@ services:
       - grafana_data:/var/lib/grafana
       - ./containers-data/grafana/provisioning:/etc/grafana/provisioning
       - ./containers-data/grafana/dashboards:/var/lib/grafana/dashboards
+      # - ./containers-data/grafana/plugins:/var/lib/grafana/plugins
     environment:
       - GF_FEATURE_TOGGLES_ENABLE=tempoSearch tempoBackendSearch
       - GF_AUTH_ANONYMOUS_ENABLED=true
