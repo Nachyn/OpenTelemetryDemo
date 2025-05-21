@@ -259,7 +259,7 @@
           },
           "direction": "backward",
           "editorMode": "code",
-          "expr": "{EnvNameTest=\"EShop\"} \r\n| json \r\n| traceid = \"7f8c2bb2688261d73e1347cf5901d1b6\"\r\n| line_format \"{{.resources_service_name}}\\n **MSG:** {{.body}}\\n{{if .attributes_RequestPath}}**Path:** `{{.attributes_RequestPath}}`{{end}}\\n{{if .attributes_EndpointName}}**Endpoint:** `{{.attributes_EndpointName}}`{{end}}\\n---\"",
+          "expr": "{EnvNameTest=\"EShop\"} \r\n| json \r\n| traceid = \"$traceId\"\r\n| line_format \"{{.resources_service_name}}\\n **MSG:** {{.body}}\\n{{if .attributes_RequestPath}}**Path:** `{{.attributes_RequestPath}}`{{end}}\\n{{if .attributes_EndpointName}}**Endpoint:** `{{.attributes_EndpointName}}`{{end}}\\n---\"",
           "key": "Q-6ecdc172-cbbf-4021-9167-613e752d5024-0",
           "queryType": "range",
           "refId": "A"
@@ -307,7 +307,7 @@
           },
           "limit": 20,
           "metricsQueryType": "range",
-          "query": "7f8c2bb2688261d73e1347cf5901d1b6",
+          "query": "$traceId",
           "queryType": "traceql",
           "refId": "A",
           "tableType": "traces"
@@ -321,7 +321,30 @@
   "schemaVersion": 41,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": "958104275ad1e127ba1b5121a9652c34",
+          "value": "958104275ad1e127ba1b5121a9652c34"
+        },
+        "datasource": {
+          "type": "tempo",
+          "uid": "dem6rqp83gxdsf"
+        },
+        "definition": "",
+        "label": "TraceId",
+        "name": "traceId",
+        "options": [],
+        "query": {
+          "label": "",
+          "refId": "TempoDatasourceVariableQueryEditor-VariableQuery",
+          "type": 1
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-1h",
@@ -331,5 +354,5 @@
   "timezone": "browser",
   "title": "EShop Demo",
   "uid": "5d977f4b-6462-4d4e-a4c0-564424ed973b",
-  "version": 5
+  "version": 6
 }
