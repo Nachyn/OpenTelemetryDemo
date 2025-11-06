@@ -24,8 +24,11 @@ exporters:
     endpoint: "jaeger:4317"
     tls:
       insecure: true
-  loki:
-    endpoint: "http://loki:3100/loki/api/v1/push"
+  otlphttp:
+    endpoint: http://loki:3100/otlp
+  #loki:
+  #  endpoint: "http://loki:3100/loki/api/v1/push" # old version otel collector
+  
   # sentry:
   #   dsn: https://<aaa>@<bbb>.ingest.de.sentry.io/<ccc>
   #   environment: prod
@@ -58,4 +61,4 @@ service:
     logs:
       receivers: [otlp]
       processors: [resource]
-      exporters: [loki, debug]
+      exporters: [otlphttp, debug]
