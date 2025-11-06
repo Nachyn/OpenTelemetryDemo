@@ -1,4 +1,4 @@
-﻿namespace EShop.Database;
+﻿namespace EShop.OrderService.Database;
 
 public class AppDbContext(ILogger<AppDbContext> logger)
 {

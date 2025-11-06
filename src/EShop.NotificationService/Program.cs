@@ -1,10 +1,10 @@
-using System.Diagnostics;
-using EShop;
-using EShop.Clients;
-using EShop.Database;
-using EShop.Middlewares;
-using EShop.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using EShop.Notification;
+using EShop.Notification.Consumers;
+using MassTransit;
+using MassTransit.Logging;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
@@ -28,14 +28,27 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Services.AddMassTransit(x =>
+    {
+        x.AddConsumer<OrderCreatedConsumer>();
+
+        x.UsingRabbitMq((context, cfg) =>
+        {
+            cfg.Host("localhost", "/", h =>
+            {
+                h.Username("guest");
+                h.Password("guest");
+            });
+
+            cfg.ConfigureEndpoints(context);
+        });
+    });
+
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     builder.Services.AddSerilog();
 
     builder.Services.AddHttpClient();
-    builder.Services.AddScoped<AppDbContext>();
-    builder.Services.AddScoped<OrderService>();
-    builder.Services.AddScoped<WarehouseClient>();
 
     builder.Services.AddOpenTelemetry()
         .ConfigureResource(x => x
@@ -44,7 +57,8 @@ try
                 new KeyValuePair<string, object>("EnvNameTest", Diagnostic.GlobalSystemName)
             ]))
         .WithTracing(b => b
-            .AddSource(Diagnostic.InstrumentsSourceName)
+            .AddSource(Diagnostic.InstrumentsSourceName) // My ActivitySource
+            .AddSource(DiagnosticHeaders.DefaultListenerName) // MassTransit ActivitySource
             .AddAspNetCoreInstrumentation(o =>
             {
                 o.RecordException = true;
@@ -73,29 +87,12 @@ try
 
     var app = builder.Build();
 
-    app.UseMiddleware<ExceptionMiddleware>();
-
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-
-    // app.UseHttpsRedirection();
-
-    app.MapPost("/api/orders",
-            ([FromServices] OrderService service,
-                [FromQuery] int productId,
-                [FromQuery] int quantity) =>
-            {
-                using var activity = Diagnostic.Source.StartActivity("API handler: /api/orders");
-                activity?.AddEvent(new ActivityEvent("OrderService call started"));
-                var order = service.CreateOrder(productId, quantity);
-                activity?.AddEvent(new ActivityEvent("OrderService call completed"));
-                return order;
-            })
-        .WithName("GetWeatherForecast");
 
     app.Run();
 }

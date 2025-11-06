@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.Metrics;
 
-namespace EShop;
+namespace EShop.OrderService;
 
 public static class Diagnostic
 {

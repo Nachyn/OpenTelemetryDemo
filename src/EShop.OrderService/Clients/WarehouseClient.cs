@@ -1,6 +1,6 @@
-﻿using EShop.Dto;
+﻿using EShop.OrderService.Dto;
 
-namespace EShop.Clients;
+namespace EShop.OrderService.Clients;
 
 public class WarehouseClient(IHttpClientFactory httpClientFactory)
 {

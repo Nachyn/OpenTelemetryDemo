@@ -1,11 +1,16 @@
 ﻿using System.Diagnostics;
-using EShop.Clients;
-using EShop.Database;
-using EShop.Models;
+using EShop.Contracts;
+using EShop.OrderService.Clients;
+using EShop.OrderService.Database;
+using EShop.OrderService.Models;
+using MassTransit;
 
-namespace EShop.Services;
+namespace EShop.OrderService.Services;
 
-public class OrderService(WarehouseClient client, AppDbContext context)
+public class OrderService(
+    WarehouseClient client,
+    AppDbContext context,
+    IPublishEndpoint publishEndpoint)
 {
     public async Task<Order> CreateOrder(int productId, int quantity)
     {
@@ -35,6 +40,16 @@ public class OrderService(WarehouseClient client, AppDbContext context)
         await context.Save(order);
 
         Diagnostic.SuccessOrdersCounter.Add(1);
+        await SendEvent(order);
         return order;
+    }
+
+    private async Task SendEvent(Order order)
+    {
+        await publishEndpoint.Publish<IOrderCreatedEvent>(new
+        {
+            order.OrderId,
+            OrderItemsCount = order.OrderItems.Count
+        });
     }
 }

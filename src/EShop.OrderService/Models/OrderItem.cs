@@ -1,4 +1,4 @@
-﻿namespace EShop.Models;
+﻿namespace EShop.OrderService.Models;
 
 public class OrderItem
 {

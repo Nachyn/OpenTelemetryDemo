@@ -1,4 +1,4 @@
-﻿namespace EShop.Dto;
+﻿namespace EShop.OrderService.Dto;
 
 public record OrderItemDto(
     int ProductId,

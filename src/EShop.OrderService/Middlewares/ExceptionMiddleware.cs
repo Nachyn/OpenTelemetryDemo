@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net.Mime;
 
-namespace EShop.Middlewares;
+namespace EShop.OrderService.Middlewares;
 
 public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
 {
