@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -125,7 +125,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -226,7 +226,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "dem6rpzjv1fk0d"
+        "uid": "loki_ds"
       },
       "fieldConfig": {
         "defaults": {},
@@ -255,7 +255,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "dem6rpzjv1fk0d"
+            "uid": "loki_ds"
           },
           "direction": "backward",
           "editorMode": "code",
@@ -271,7 +271,7 @@
     {
       "datasource": {
         "type": "tempo",
-        "uid": "dem6rqp83gxdsf"
+        "uid": "tempo_ds"
       },
       "fieldConfig": {
         "defaults": {},
@@ -303,7 +303,7 @@
         {
           "datasource": {
             "type": "tempo",
-            "uid": "dem6rqp83gxdsf"
+            "uid": "tempo_ds"
           },
           "limit": 20,
           "metricsQueryType": "range",
@@ -329,7 +329,7 @@
         },
         "datasource": {
           "type": "tempo",
-          "uid": "dem6rqp83gxdsf"
+          "uid": "tempo_ds"
         },
         "definition": "",
         "label": "TraceId",

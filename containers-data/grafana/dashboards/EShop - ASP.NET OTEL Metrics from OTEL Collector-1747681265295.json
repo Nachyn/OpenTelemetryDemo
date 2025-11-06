@@ -44,7 +44,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -159,7 +159,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "irate(process_cpu_time_seconds_total{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -185,7 +185,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -273,7 +273,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(process_memory_usage_bytes{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -288,7 +288,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "description": "",
       "fieldConfig": {
@@ -351,7 +351,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(process_thread_count{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -379,7 +379,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -471,7 +471,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(dotnet_gc_last_collection_memory_committed_size_bytes{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -483,7 +483,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(process_runtime_dotnet_gc_objects_size_bytes{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -494,7 +494,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -512,7 +512,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -668,7 +668,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(dotnet_gc_last_collection_heap_size_bytes{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -694,7 +694,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -850,7 +850,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(dotnet_gc_last_collection_heap_fragmentation_size_bytes {exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -876,7 +876,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "description": "",
       "fieldConfig": {
@@ -1014,7 +1014,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1044,7 +1044,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "description": "",
       "fieldConfig": {
@@ -1128,7 +1128,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "increase(dotnet_exceptions_total{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -1143,7 +1143,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "description": "",
       "fieldConfig": {
@@ -1195,7 +1195,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(dotnet_thread_pool_thread_count_total{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -1210,7 +1210,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "description": "",
       "fieldConfig": {
@@ -1262,7 +1262,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "max_over_time(dotnet_thread_pool_queue_length_total{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])",
@@ -1290,7 +1290,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -1374,7 +1374,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.50, sum(rate(http_server_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])) by (le))",
@@ -1385,7 +1385,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])) by (le))",
@@ -1397,7 +1397,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])) by (le))",
@@ -1409,7 +1409,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])) by (le))",
@@ -1421,7 +1421,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])) by (le))",
@@ -1433,7 +1433,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])) by (le))",
@@ -1445,7 +1445,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.999, sum(rate(http_server_duration_milliseconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval])) by (le))",
@@ -1461,7 +1461,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -1590,7 +1590,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "sum(rate(http_server_request_duration_seconds_count{exported_job=\"$job\", exported_instance=\"$instance\", http_response_status_code!~\"2..\"}[$__rate_interval]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval]))",
@@ -1601,7 +1601,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "sum(rate(http_server_request_duration_seconds_count{exported_job=\"$job\", exported_instance=\"$instance\", http_response_status_code=~\"4..\"}[$__rate_interval]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval]))",
@@ -1613,7 +1613,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "sum(rate(http_server_request_duration_seconds_count{exported_job=\"$job\", exported_instance=\"$instance\", http_response_status_code=~\"5..\"}[$__rate_interval]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{exported_job=\"$job\", exported_instance=\"$instance\"}[$__rate_interval]))",
@@ -1643,7 +1643,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -1727,7 +1727,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.50, sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval])) by (le))",
@@ -1738,7 +1738,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.75, sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval])) by (le))",
@@ -1750,7 +1750,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.90, sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval])) by (le))",
@@ -1762,7 +1762,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.95, sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval])) by (le))",
@@ -1774,7 +1774,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.98, sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval])) by (le))",
@@ -1786,7 +1786,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.99, sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval])) by (le))",
@@ -1798,7 +1798,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.999, sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval])) by (le))",
@@ -1814,7 +1814,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "eem6roaoq3w8wb"
+        "uid": "prometheus_ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -1943,7 +1943,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\", http_response_status_code!~\"2..\"}[$__rate_interval]) or vector(0)) / sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval]))",
@@ -1954,7 +1954,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\", http_response_status_code=~\"4..\"}[$__rate_interval]) or vector(0)) / sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval]))",
@@ -1966,7 +1966,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "eem6roaoq3w8wb"
+            "uid": "prometheus_ds"
           },
           "editorMode": "code",
           "expr": "sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\", http_response_status_code=~\"5..\"}[$__rate_interval]) or vector(0)) / sum(rate(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\", server_address=\"$http_client_peer_name\"}[$__rate_interval]))",
@@ -2002,7 +2002,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "eem6roaoq3w8wb"
+          "uid": "prometheus_ds"
         },
         "definition": "label_values(dotnet_gc_collections_total,exported_job)",
         "includeAll": false,
@@ -2026,7 +2026,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "eem6roaoq3w8wb"
+          "uid": "prometheus_ds"
         },
         "definition": "label_values(dotnet_gc_collections_total{exported_job=~\"$job\"},exported_instance)",
         "includeAll": false,
@@ -2050,7 +2050,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "eem6roaoq3w8wb"
+          "uid": "prometheus_ds"
         },
         "definition": "label_values(http_client_request_duration_seconds_bucket{exported_job=\"$job\", exported_instance=\"$instance\"},server_address)",
         "hide": 2,
