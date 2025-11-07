@@ -29,6 +29,9 @@ public sealed class OrderCreatedConsumer(ILogger<OrderCreatedConsumer> logger) :
 
     private async Task RandomDelay()
     {
+        // [CallerMemberName] = RandomDelay
+        using var _ = Diagnostic.Source.StartActivity();
+
         var random = new Random();
         await Task.Delay(random.Next(100, 1000));
     }

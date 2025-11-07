@@ -10,16 +10,19 @@ processors:
   batch:
   resource:
     attributes:
-      - action: insert
-        key: loki.resource.labels
-        value: EnvNameTest
+      #- action: insert
+      #  key: loki.resource.labels # old loki exporter
+      #  value: EnvNameTest
+      - action: upsert
+        key: service.namespace
+        from_attribute: EnvNameTest
 
 exporters:
   prometheus:
     endpoint: "0.0.0.0:8889"
     # namespace: app
   debug:
-    verbosity: detailed  # можно detailed, normal, basic
+    verbosity: detailed # можно detailed, normal, basic
   otlp/jaeger:
     endpoint: "jaeger:4317"
     tls:
@@ -27,8 +30,8 @@ exporters:
   otlphttp:
     endpoint: http://loki:3100/otlp
   #loki:
-  #  endpoint: "http://loki:3100/loki/api/v1/push" # old version otel collector
-  
+  #  endpoint: "http://loki:3100/loki/api/v1/push" # old loki exporter
+
   # sentry:
   #   dsn: https://<aaa>@<bbb>.ingest.de.sentry.io/<ccc>
   #   environment: prod
@@ -53,11 +56,11 @@ service:
     metrics:
       receivers: [otlp]
       processors: [batch]
-      exporters: [prometheus, debug]
+      exporters: [prometheus]
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [otlp/jaeger, otlp/tempo, debug]
+      exporters: [otlp/jaeger, otlp/tempo]
     logs:
       receivers: [otlp]
       processors: [resource]
