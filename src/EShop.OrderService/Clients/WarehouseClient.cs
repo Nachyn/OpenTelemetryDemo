@@ -9,7 +9,7 @@ public class WarehouseClient(IHttpClientFactory httpClientFactory)
 
     public async Task<OrderItemDto> ReserveProduct(int productId, int quantity)
     {
-        using var activity = Diagnostic.Source.StartActivity();
+        using var activity = Telemetry.Source.StartActivity();
         activity?.AddTag("productId", productId);
         activity?.AddTag("quantity", productId);
 

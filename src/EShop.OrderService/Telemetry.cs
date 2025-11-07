@@ -3,7 +3,7 @@ using System.Diagnostics.Metrics;
 
 namespace EShop.OrderService;
 
-public static class Diagnostic
+public static class Telemetry
 {
     public const string GlobalSystemName = "EShop";
     public const string ApplicationName = "EShop.OrderService";

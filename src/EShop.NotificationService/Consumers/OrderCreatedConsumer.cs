@@ -11,13 +11,13 @@ public sealed class OrderCreatedConsumer(ILogger<OrderCreatedConsumer> logger) :
         var msg = context.Message;
         logger.LogInformation($"START consume order with id {msg.OrderId}");
 
-        using (var activity = Diagnostic.Source.StartActivity("Consume OrderCreated: Handle part 1"))
+        using (var activity = Telemetry.Source.StartActivity("Consume OrderCreated: Handle part 1"))
         {
             logger.LogInformation("Handling part 1..");
             activity?.AddTag("OrderItemsCount", msg.OrderItemsCount);
             await RandomDelay();
 
-            using (Diagnostic.Source.StartActivity("Consume OrderCreated: Handle part 2"))
+            using (Telemetry.Source.StartActivity("Consume OrderCreated: Handle part 2"))
             {
                 logger.LogInformation("Handling part 2..");
                 await RandomDelay();
@@ -30,7 +30,7 @@ public sealed class OrderCreatedConsumer(ILogger<OrderCreatedConsumer> logger) :
     private async Task RandomDelay()
     {
         // [CallerMemberName] = RandomDelay
-        using var _ = Diagnostic.Source.StartActivity();
+        using var _ = Telemetry.Source.StartActivity();
 
         var random = new Random();
         await Task.Delay(random.Next(100, 1000));

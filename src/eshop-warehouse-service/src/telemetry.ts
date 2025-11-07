@@ -55,8 +55,8 @@ export function startOtelSDK() {
   process.on('SIGTERM', () => {
     sdk
       .shutdown()
-      .then(() => console.log('Tracing terminated'))
-      .catch((error) => console.log('Error terminating tracing', error))
+      .then(() => console.log('Telemetry terminated'))
+      .catch((error) => console.log('Error terminating telemetry', error))
       .finally(() => process.exit(0));
   });
 }

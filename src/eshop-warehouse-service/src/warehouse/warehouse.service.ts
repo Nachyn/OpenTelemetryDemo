@@ -41,7 +41,7 @@ export class WarehouseService {
 
       const product = this.products.find((p) => p.id === productId);
       if (!product) {
-        this.loggerService.log(`Product with ID ${productId} not found`);
+        this.loggerService.error(`Product with ID ${productId} not found`);
         span.setAttribute('error', true);
         span.setStatus({
           code: SpanStatusCode.ERROR,

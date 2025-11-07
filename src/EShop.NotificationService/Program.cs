@@ -18,8 +18,8 @@ Log.Logger = new LoggerConfiguration()
         options.Protocol = OtlpProtocol.Grpc;
         options.ResourceAttributes = new Dictionary<string, object>
         {
-            ["EnvNameTest"] = Diagnostic.GlobalSystemName,
-            ["service.name"] = Diagnostic.ApplicationName
+            ["EnvNameTest"] = Telemetry.GlobalSystemName,
+            ["service.name"] = Telemetry.ApplicationName
         };
     })
     .CreateLogger();
@@ -52,12 +52,12 @@ try
 
     builder.Services.AddOpenTelemetry()
         .ConfigureResource(x => x
-            .AddService(Diagnostic.ApplicationName)
+            .AddService(Telemetry.ApplicationName)
             .AddAttributes([
-                new KeyValuePair<string, object>("EnvNameTest", Diagnostic.GlobalSystemName)
+                new KeyValuePair<string, object>("EnvNameTest", Telemetry.GlobalSystemName)
             ]))
         .WithTracing(b => b
-            .AddSource(Diagnostic.InstrumentsSourceName) // My ActivitySource
+            .AddSource(Telemetry.InstrumentsSourceName) // My ActivitySource
             .AddSource(DiagnosticHeaders.DefaultListenerName) // MassTransit ActivitySource
             .AddAspNetCoreInstrumentation(o =>
             {
@@ -74,7 +74,7 @@ try
             .AddHttpClientInstrumentation()
             .AddOtlpExporter())
         .WithMetrics(x => x
-            .AddMeter(Diagnostic.InstrumentsSourceName)
+            .AddMeter(Telemetry.InstrumentsSourceName)
             .AddAspNetCoreInstrumentation()
             .AddHttpClientInstrumentation()
             .AddRuntimeInstrumentation()

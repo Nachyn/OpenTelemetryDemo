@@ -14,9 +14,9 @@ public class OrderService(
 {
     public async Task<Order> CreateOrder(int productId, int quantity)
     {
-        using var activity = Diagnostic.Source.StartActivity();
+        using var activity = Telemetry.Source.StartActivity();
 
-        Diagnostic.TryOrdersCounter.Add(1);
+        Telemetry.TryOrdersCounter.Add(1);
 
         activity?.AddEvent(new ActivityEvent("Reserve product"));
         var product = await client.ReserveProduct(productId, quantity);
@@ -39,7 +39,7 @@ public class OrderService(
         };
         await context.Save(order);
 
-        Diagnostic.SuccessOrdersCounter.Add(1);
+        Telemetry.SuccessOrdersCounter.Add(1);
         await SendEvent(order);
         return order;
     }
