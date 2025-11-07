@@ -29,6 +29,105 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 18,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus_ds"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.9, \r\n  sum(increase(orders_items_per_order_count_bucket[1h])) by (le)\r\n)",
+          "key": "Q-0a2f7ff5-248c-4fe2-8c11-a48249ba4bb2-0",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "90% заказов за последний час содержат не более N товаров.",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus_ds"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "fixedColor": "blue",
             "mode": "fixed"
           },
@@ -86,7 +185,7 @@
         "h": 7,
         "w": 9,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 1,
       "options": {
@@ -111,7 +210,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(try_orders_count_total{exported_job=\"EShop.OrderService\"})",
+          "expr": "sum(orders_success_total{exported_job=\"EShop.OrderService\"})",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": true,
@@ -121,7 +220,7 @@
           "useBackend": false
         }
       ],
-      "title": "Общее количество попыток купить товары",
+      "title": "Количество успешно созданных заказов",
       "type": "timeseries"
     },
     {
@@ -189,7 +288,7 @@
         "h": 7,
         "w": 9,
         "x": 9,
-        "y": 0
+        "y": 8
       },
       "id": 2,
       "options": {
@@ -214,7 +313,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(success_orders_count_total{exported_job=\"EShop.OrderService\"})",
+          "expr": "sum(orders_failed_total{exported_job=\"EShop.OrderService\"})",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": true,
@@ -224,7 +323,7 @@
           "useBackend": false
         }
       ],
-      "title": "Общее количество купленных товаров",
+      "title": "Количество неудачных заказов",
       "type": "timeseries"
     },
     {
@@ -240,7 +339,7 @@
         "h": 8,
         "w": 18,
         "x": 0,
-        "y": 7
+        "y": 15
       },
       "id": 3,
       "options": {
@@ -285,7 +384,7 @@
         "h": 17,
         "w": 18,
         "x": 0,
-        "y": 15
+        "y": 23
       },
       "id": 4,
       "options": {
@@ -358,5 +457,5 @@
   "timezone": "browser",
   "title": "EShop Demo",
   "uid": "5d977f4b-6462-4d4e-a4c0-564424ed973b",
-  "version": 2
+  "version": 3
 }

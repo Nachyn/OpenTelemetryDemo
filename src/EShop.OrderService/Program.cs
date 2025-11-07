@@ -112,7 +112,7 @@ try
                 activity?.AddEvent(new ActivityEvent("OrderService call completed"));
                 return order;
             })
-        .WithName("EShop.Orders");
+        .WithName("Orders");
 
     app.Run();
 }
