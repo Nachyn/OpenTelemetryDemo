@@ -16,14 +16,14 @@ public static class Telemetry
     public static readonly Counter<int> OrdersSuccessTotal =
         Meter.CreateCounter<int>(
             name: "orders_success_total",
-            unit: "1",
+            unit: "count",
             description: "Number of successfully created orders"
         );
 
     public static readonly Counter<int> OrdersFailedTotal =
         Meter.CreateCounter<int>(
             name: "orders_failed_total",
-            unit: "1",
+            unit: "count",
             description: "Number of failed order attempts"
         );
 
