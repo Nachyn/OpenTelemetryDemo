@@ -27,7 +27,7 @@ exporters:
     endpoint: "jaeger:4317"
     tls:
       insecure: true
-  otlphttp:
+  otlphttp/loki:
     endpoint: http://loki:3100/otlp
   #loki:
   #  endpoint: "http://loki:3100/loki/api/v1/push" # old loki exporter
@@ -64,4 +64,4 @@ service:
     logs:
       receivers: [otlp]
       processors: [resource]
-      exporters: [otlphttp, debug]
+      exporters: [otlphttp/loki, debug]
